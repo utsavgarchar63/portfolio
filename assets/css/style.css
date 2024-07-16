@@ -2043,6 +2043,7 @@ textarea.form-input::-webkit-resizer {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 15px;
   gap: 8px;
   padding: 8px 8px;
   margin-top: 15px;

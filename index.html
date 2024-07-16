@@ -64,24 +64,7 @@
            <ion-icon name="paper-plane"></ion-icon>
            <span>Download Resume</span>
        </button> -->
-       <button type="button" class="resume-btn" id="downloadButton">
-        <ion-icon name="paper-plane"></ion-icon>
-        <span>Download Resume</span>
-      </button>
-      <script>
-        document.getElementById("downloadButton").addEventListener("click", downloadPDF);
         
-        function downloadPDF() {
-          const pdfUrl = "/assets/images/Utsav Garchar Resume.pdf.pdf"; // Replace with your path
-        
-          const link = document.createElement("a");
-          link.href = pdfUrl;
-          link.download = "UtsavGarchar.pdf"; // Set desired filename
-        
-          // Simulate a click on the link to trigger download
-          link.click();
-        }
-        </script>
         <button class="info_more-btn" data-sidebar-btn>
           <span>Show Contacts</span>
 
@@ -91,7 +74,24 @@
 
       <div class="sidebar-info_more">
         <div class="separator"></div>
+        <button type="button" class="resume-btn" id="downloadButton">
+          <ion-icon name="paper-plane"></ion-icon>
+          <span>Download Resume</span>
+        </button>
+        <script>
+          document.getElementById("downloadButton").addEventListener("click", downloadPDF);
 
+          function downloadPDF() {
+            const pdfUrl = "/assets/images/Utsav Garchar Resume.pdf.pdf"; // Replace with your path
+
+            const link = document.createElement("a");
+            link.href = pdfUrl;
+            link.download = "UtsavGarchar.pdf"; // Set desired filename
+
+            // Simulate a click on the link to trigger download
+            link.click();
+          }
+        </script>
         <ul class="contacts-list">
           <li class="contact-item">
             <div class="icon-box">
@@ -1084,23 +1084,23 @@
         </section>
 
         <section class="contact-form">
+
           <h3 class="h3 form-title">Contact Form</h3>
+          <div id="responseMessage"></div>
 
-          <form action="#" class="form" data-form>
+          <form id="contactForm" method="post" class="form">
             <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input />
-
-              <input type="email" name="email" class="form-input" placeholder="Email address" required
-                data-form-input />
+              <input type="text" name="name" class="form-input" placeholder="Full name" required>
+              <input type="email" name="email" class="form-input" placeholder="Email address" required>
             </div>
-
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
-
-            <button class="form-btn" type="submit" disabled data-form-btn>
+            <textarea name="message" class="form-input" placeholder="Your Message" required></textarea>
+            <button class="form-btn" type="submit">
               <ion-icon name="paper-plane"></ion-icon>
               <span>Send Message</span>
             </button>
           </form>
+
+          <!-- Display response message -->
         </section>
       </article>
     </div>
@@ -1110,7 +1110,60 @@
     - custom js link
   -->
   <script src="./assets/js/script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+  <script>
+
+    $(document).ready(function () {
+      $("#contactForm").submit(function (e) {
+        e.preventDefault(); // Prevent the default form submit
+
+        var formData = $(this).serialize(); // Serialize the form data
+
+        // Send an AJAX request
+        $.ajax({
+          type: "POST",
+          url: "http://localhost:8002/contact", // Replace with your actual API endpoint URL
+          data: formData,
+          success: function (response) {
+            console.log(response);
+            // Clear the form inputs
+            $("#contactForm")[0].reset();
+            // Display success message
+            $("#responseMessage").html('<div class="success-message">Message sent successfully!</div>').find('.success-message').css({
+              "width": " 100%",
+              "background": "linear-gradient(to bottom right,hsl(0, 0%, 25%) 0%,hsla(0, 0%, 25%, 0) 50%);",
+              "color": "hsl(45, 100%, 72%)",
+              "gap": "10px",
+              "padding": "13px 20px",
+              "border-radius": "14px",
+              "margin-bottom":"15px",
+              "font-size": "14px",
+              "text-transform": "capitalize",
+              "box-shadow": "0 16px 40px hsla(0, 0%, 0%, 0.25)",
+            });
+          },
+          error: function (xhr, status, error) {
+            console.error(xhr.responseText);
+            // Display error message
+            $("#responseMessage").html('<div class="error-message">Internal Server Error.</div>').find('.error-message').css({
+              "width": " 100%",
+              "background": "linear-gradient(to bottom right,hsl(0, 0%, 25%) 0%,hsla(0, 0%, 25%, 0) 50%);",
+              "color": "hsl(45, 100%, 72%)",
+              "gap": "10px",
+              "padding": "13px 20px",
+              "border-radius": "14px",
+              "margin-bottom":"15px",
+              "font-size": "14px",
+              "text-transform": "capitalize",
+              "box-shadow": "0 16px 40px hsla(0, 0%, 0%, 0.25)",
+            });;
+          }
+        });
+      });
+    });
+
+  </script>
   <!--
     - ionicon link
   -->
