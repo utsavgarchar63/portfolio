@@ -1604,6 +1604,8 @@ textarea.form-input::-webkit-resizer {
   .clients-list {
     gap: 50px;
     margin: 0 -30px;
+    display: flex;
+    align-items: center;
     padding: 45px;
     scroll-padding-inline: 45px;
   }
