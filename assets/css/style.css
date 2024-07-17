@@ -331,7 +331,7 @@ main {
 
 .sidebar {
   margin-bottom: 15px;
-  max-height: 112px;
+  max-height: 126px;
   overflow: hidden;
   transition: var(--transition-2);
 }
@@ -786,6 +786,7 @@ main {
   gap: 15px;
   margin: 0 -15px;
   padding: 25px;
+  flex-direction: column;
   padding-bottom: 25px;
   overflow-x: auto;
   scroll-behavior: smooth;
@@ -1360,8 +1361,10 @@ textarea.form-input::-webkit-resizer {
 
   .avatar-box img {
     width: 100px;
+    display: block;
   }
 }
+
 @media (min-width: 580px) {
   /**
    * CUSTOM PROPERTY
