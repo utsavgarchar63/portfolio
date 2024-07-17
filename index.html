@@ -7,20 +7,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Utsav Garchar | Portfolio</title>
 
-  <meta name="description" content="Explore the portfolio of Utsav Garchar, featuring an in-depth 'About Me' section, a showcase of diverse projects, and a comprehensive list of skills. Discover my journey, expertise, and accomplishments.">
-  <meta name="keywords" content="Utsav Garchar, portfolio, projects, skills, developer, programmer, web development, software engineering, about me">
+  <meta name="description"
+    content="Explore the portfolio of Utsav Garchar, featuring an in-depth 'About Me' section, a showcase of diverse projects, and a comprehensive list of skills. Discover my journey, expertise, and accomplishments.">
+  <meta name="keywords"
+    content="Utsav Garchar, portfolio, projects, skills, developer, programmer, web development, software engineering, about me">
   <meta name="author" content="Utsav Garchar">
   <meta name="robots" content="index, follow">
 
   <meta property="og:title" content="Utsav Garchar">
-  <meta property="og:description" content="Explore the portfolio of Utsav Garchar, featuring an in-depth 'About Me' section, a showcase of diverse projects, and a comprehensive list of skills. Discover my journey, expertise, and accomplishments.">
+  <meta property="og:description"
+    content="Explore the portfolio of Utsav Garchar, featuring an in-depth 'About Me' section, a showcase of diverse projects, and a comprehensive list of skills. Discover my journey, expertise, and accomplishments.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://utsavgarchar.vercel.app/">
   <meta property="og:image" content="https://i.ibb.co/jZhYCB1/profile2.jpg">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Utsav Garchar Portfolio">
-  <meta name="twitter:description" content="Explore the portfolio of Utsav Garchar, featuring an in-depth 'About Me' section, a showcase of diverse projects, and a comprehensive list of skills. Discover my journey, expertise, and accomplishments.">
+  <meta name="twitter:description"
+    content="Explore the portfolio of Utsav Garchar, featuring an in-depth 'About Me' section, a showcase of diverse projects, and a comprehensive list of skills. Discover my journey, expertise, and accomplishments.">
   <meta name="twitter:image" content="https://i.ibb.co/jZhYCB1/profile2.jpg">
   <meta name="twitter:site" content="@your_twitter_handle">
 
@@ -93,7 +97,7 @@
            <ion-icon name="paper-plane"></ion-icon>
            <span>Download Resume</span>
        </button> -->
-        
+
         <button class="info_more-btn" data-sidebar-btn>
           <span>Show Contacts</span>
 
@@ -239,7 +243,7 @@
 
         <section class="about-text">
           <p>
-            I am a dedicated MERN stack developer with a passion for crafting
+            I am a dedicated Web developer with a passion for crafting
             efficient, scalable, and user-friendly solutions. With a solid
             background in both front-end and back-end development, I enjoy
             turning complex problems into simple, beautiful, and intuitive
@@ -477,17 +481,101 @@
         </div>
         <section class="certificates">
           <h3 class="h3 clients-title">Certificates</h3>
+          <style>
+            ul.testimonials-list1 {
+              list-style-type: none;
+              padding: 0;
+              display: flex;
+              gap: 10px;
+              overflow-x: scroll;
+            }
+
+            ul.testimonials-list .testimonials-item1 {
+              flex-shrink: 0;
+              width: 200px;
+            }
+
+            ul.testimonials-list .slider-image {
+              border-radius: 10px;
+              display: block;
+              width: 100%;
+              cursor: pointer ;
+            }
+
+            .overlay {
+              display: none;
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background-color: rgba(0, 0, 0, 0.8);
+              justify-content: center;
+              align-items: center;
+              transition: opacity 0.3s ease;
+              opacity: 0;
+            }
+
+            .overlay.active {
+              display: flex;
+              opacity: 1;
+            }
+
+            .overlay .overlay-image {
+              max-width: 90%;
+              max-height: 90%;
+              cursor: pointer;
+            }
+
+            .overlay .close-btn {
+              position: absolute;
+              top: 20px;
+              right: 30px;
+              font-size: 40px;
+              color: white;
+              cursor: pointer;
+            }
+          </style>
           <ul class="testimonials-list has-scrollbar">
             <li class="testimonials-item">
-              <img src="./assets/images/blog-1.jpg" style="border-radius: 10px; display: block;" width="100%" alt="">
+              <img src="./assets/images/Certificate_page-0001.jpg" class="slider-image" style="border-radius: 10px; display: block;"
+                width="100%" alt="">
             </li>
             <li class="testimonials-item">
-              <img src="./assets/images/blog-2.jpg" style="border-radius: 10px; display: block;" width="100%" alt="">
+              <img src="./assets/images/blog-2.jpg" class="slider-image" style="border-radius: 10px; display: block;"
+                width="100%" alt="">
             </li>
             <li class="testimonials-item">
-              <img src="./assets/images/blog-4.jpg" style="border-radius: 10px; display: block;" width="100%" alt="">
+              <img src="./assets/images/blog-4.jpg" class="slider-image" style="border-radius: 10px; display: block;"
+                width="100%" alt="">
             </li>
           </ul>
+          <div id="fullscreen-overlay" class="overlay">
+            <span class="close-btn">&times;</span>
+            <img class="overlay-image" id="fullscreen-image">
+          </div>
+          <script>
+            document.querySelectorAll('.slider-image').forEach(item => {
+              item.addEventListener('click', event => {
+                const src = event.target.src;
+                const overlay = document.getElementById('fullscreen-overlay');
+                const overlayImage = document.getElementById('fullscreen-image');
+                overlayImage.src = src;
+                overlay.classList.add('active');
+              });
+            });
+
+            document.querySelector('.close-btn').addEventListener('click', () => {
+              document.getElementById('fullscreen-overlay').classList.remove('active');
+            });
+
+            document.getElementById('fullscreen-overlay').addEventListener('click', event => {
+              if (event.target !== document.getElementById('fullscreen-image')) {
+                document.getElementById('fullscreen-overlay').classList.remove('active');
+              }
+            });
+
+          </script>
         </section>
         <!--
           - clients
@@ -648,7 +736,8 @@
               <span>Jan 2024 — Present</span>
 
               <p class="timeline-text">
-                Developed and maintained scalable web applications using Node.js and Express.js. Worked with databases such as MongoDB and MySQL for data management
+                Developed and maintained scalable web applications using Node.js and Express.js. Worked with databases
+                such as MongoDB and MySQL for data management
               </p>
             </li>
 
@@ -730,13 +819,13 @@
                 <div class="skill-progress-fill" style="width: 80%"></div>
               </div>
             </li>
-           
 
-            
 
-           
 
-           
+
+
+
+
           </ul>
         </section>
       </article>
@@ -789,7 +878,7 @@
                 <button data-select-item>Web design</button>
               </li>
 
-             
+
 
               <li class="select-item">
                 <button data-select-item>Web development</button>
@@ -798,9 +887,9 @@
           </div>
 
           <ul class="project-list">
-            
 
-            
+
+
 
             <li class="project-item active" data-filter-item data-category="web design">
               <a href="https://biz-coach.vercel.app/" target="_blank">
@@ -850,7 +939,7 @@
               </a>
             </li>
 
-            
+
 
             <li class="project-item active" data-filter-item data-category="web development">
               <a href="https://aaziko.com/">
@@ -891,7 +980,8 @@
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/Untitled design (4).png" width="206px" height="207px" alt="arrival" loading="lazy" />
+                  <img src="./assets/images/Untitled design (4).png" width="206px" height="207px" alt="arrival"
+                    loading="lazy" />
                 </figure>
 
                 <h3 class="project-title">Morsy Property</h3>
@@ -915,158 +1005,154 @@
         <section class="blog-posts">
           <ul class="blog-posts-list">
             <li class="blog-post-item">
-              <a href="#">
+              <a href="https://www.intelegain.com/copilot-in-microsoft-365-ai-powered-assistance/" target="_blank">
                 <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy" />
+                  <img src="https://www.intelegain.com/wp-content/uploads/2024/05/Copilot-in-Microsoft-365-AI-powered-assistance.png" alt="Design conferences in 2022" loading="lazy" />
                 </figure>
 
                 <div class="blog-content">
                   <div class="blog-meta">
-                    <p class="blog-category">Design</p>
+                    <p class="blog-category">MICROSOFT</p>
 
                     <span class="dot"></span>
 
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                    <time datetime="2022-02-23">May 6, 2024</time>
                   </div>
 
                   <h3 class="h3 blog-item-title">
-                    Design conferences in 2022
+                    Copilot in Microsoft 365: AI-powered assistance
                   </h3>
 
                   <p class="blog-text">
-                    Veritatis et quasi architecto beatae vitae dicta sunt,
-                    explicabo.
+                    Unlocking the Power of CoPilot: Transforming Collaboration in Microsoft 365 The Collaboration Imperative in the Modern Workplace In today's business...
                   </p>
                 </div>
               </a>
             </li>
 
             <li class="blog-post-item">
-              <a href="#">
+              <a href="https://www.intelegain.com/ethical-considerations-in-ai-machine-learning/" target="_blank">
                 <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-2.jpg" alt="Best fonts every designer" loading="lazy" />
+                  <img src="https://www.intelegain.com/wp-content/uploads/2024/03/AI-Machine-Learning.png" alt="Best fonts every designer" loading="lazy" />
                 </figure>
 
                 <div class="blog-content">
                   <div class="blog-meta">
-                    <p class="blog-category">Design</p>
+                    <p class="blog-category">
+ARTIFICIAL INTELLIGENCE</p>
 
                     <span class="dot"></span>
 
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                    <time datetime="2022-02-23">Mar 26, 2024</time>
                   </div>
 
                   <h3 class="h3 blog-item-title">
-                    Best fonts every designer
+                    Ethical Considerations in AI & Machine Learning
                   </h3>
 
                   <p class="blog-text">
-                    Sed ut perspiciatis, nam libero tempore, cum soluta nobis
-                    est eligendi.
+                    Artificial Intelligence (AI) and Machine Learning (ML) have rapidly evolved in recent years, transforming various aspects of our lives, from...
                   </p>
                 </div>
               </a>
             </li>
 
             <li class="blog-post-item">
-              <a href="#">
+              <a href="https://www.intelegain.com/moving-legacy-applications-to-cloud/" target="_blank">
                 <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-3.jpg" alt="Design digest #80" loading="lazy" />
+                  <img src="https://www.intelegain.com/wp-content/uploads/2023/10/Moving-Legacy-Applications-to-Cloud.png" alt="Design digest #80" loading="lazy" />
                 </figure>
 
                 <div class="blog-content">
                   <div class="blog-meta">
-                    <p class="blog-category">Design</p>
+                    <p class="blog-category">
+CLOUD</p>
 
                     <span class="dot"></span>
 
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                    <time datetime="2022-02-23">Oct 31, 2023</time>
                   </div>
 
-                  <h3 class="h3 blog-item-title">Design digest #80</h3>
+                  <h3 class="h3 blog-item-title">Moving Legacy Applications to Cloud</h3>
 
                   <p class="blog-text">
-                    Excepteur sint occaecat cupidatat no proident, quis
-                    nostrum exercitationem ullam corporis suscipit.
+                    Businesses are increasingly recognizing the immense benefits of migrating their legacy applications to cloud environments. This strategic move not only...
                   </p>
                 </div>
               </a>
             </li>
 
             <li class="blog-post-item">
-              <a href="#">
+              <a href="https://www.intelegain.com/how-intelegain-built-a-web-based-container-tracking-app/" target="_blank">
                 <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-4.jpg" alt="UI interactions of the week" loading="lazy" />
+                  <img src="https://www.intelegain.com/wp-content/uploads/2023/06/ezgif.com-video-to-gif-1.gif" alt="UI interactions of the week" loading="lazy" />
                 </figure>
 
                 <div class="blog-content">
                   <div class="blog-meta">
-                    <p class="blog-category">Design</p>
+                    <p class="blog-category">TECHNOLOGY</p>
 
                     <span class="dot"></span>
 
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                    <time datetime="2022-02-23">Jun 15, 2023</time>
                   </div>
 
                   <h3 class="h3 blog-item-title">
-                    UI interactions of the week
+                    How Intelegain Built a Web-Based Container Tracking Application
                   </h3>
 
                   <p class="blog-text">
-                    Enim ad minim veniam, consectetur adipiscing elit, quis
-                    nostrud exercitation ullamco laboris nisi.
+                    A leading logistics company in India faced challenges due to a lack of an automated process for tracking multiple containers....
                   </p>
                 </div>
               </a>
             </li>
 
             <li class="blog-post-item">
-              <a href="#">
+              <a href="https://www.intelegain.com/why-choose-mean-stack-development-for-your-next-project/" target="_blank">
                 <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-5.jpg" alt="The forgotten art of spacing" loading="lazy" />
+                  <img src="https://www.intelegain.com/wp-content/uploads/2020/01/Mean.png" alt="The forgotten art of spacing" loading="lazy" />
                 </figure>
 
                 <div class="blog-content">
                   <div class="blog-meta">
-                    <p class="blog-category">Design</p>
+                    <p class="blog-category">TECHNOLOGY</p>
 
                     <span class="dot"></span>
 
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                    <time datetime="2022-02-23">Dec 23, 2019</time>
                   </div>
 
                   <h3 class="h3 blog-item-title">
-                    The forgotten art of spacing
+                    Why choose MEAN Stack Development for your next project?
                   </h3>
 
                   <p class="blog-text">
-                    Maxime placeat, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.
+                   Everyone desires successful results in a single try. Similarly- if you want to build an application, you have to make...
                   </p>
                 </div>
               </a>
             </li>
 
             <li class="blog-post-item">
-              <a href="#">
+              <a href="https://www.intelegain.com/5-reasons-why-node-js-is-the-best-framework-to-build-an-e-commerce-marketplace/" target="_blank">
                 <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-6.jpg" alt="Design digest #79" loading="lazy" />
+                  <img src="https://www.intelegain.com/wp-content/uploads/2019/06/Nodejs-blog-banner.png" alt="Design digest #79" loading="lazy" />
                 </figure>
 
                 <div class="blog-content">
                   <div class="blog-meta">
-                    <p class="blog-category">Design</p>
+                    <p class="blog-category">NODE JS DEVELOPMENT</p>
 
                     <span class="dot"></span>
 
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                    <time datetime="2022-02-23">Jun 27, 2019</time>
                   </div>
 
-                  <h3 class="h3 blog-item-title">Design digest #79</h3>
+                  <h3 class="h3 blog-item-title">5 Reasons Why Node.js Is the Best Framework to Build an E-commerce Marketplace</h3>
 
                   <p class="blog-text">
-                    Optio cumque nihil impedit uo minus quod maxime placeat,
-                    velit esse cillum.
+                    JavaScript’s rising popularity has successfully brought in a lot of changes to the face of web development. The things possible...
                   </p>
                 </div>
               </a>
