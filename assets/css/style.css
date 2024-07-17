@@ -784,9 +784,8 @@ main {
   justify-content: flex-start;
   align-items: center;
   gap: 15px;
-  margin: 0 -15px;
+  margin: -15px;
   padding: 25px;
-  flex-direction: column;
   padding-bottom: 25px;
   overflow-x: auto;
   scroll-behavior: smooth;
@@ -1605,7 +1604,7 @@ textarea.form-input::-webkit-resizer {
   /* clients */
 
   .clients-list {
-    gap: 50px;
+    gap: 39px;
     margin: 0 -30px;
     display: flex;
     align-items: center;
