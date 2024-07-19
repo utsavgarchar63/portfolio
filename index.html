@@ -478,104 +478,7 @@
             </div>
           </section>
         </div>
-        <section class="certificates">
-          <h3 class="h3 clients-title">Certificates</h3>
-          <style>
-            ul.testimonials-list1 {
-              list-style-type: none;
-              padding: 0;
-              display: flex;
-              gap: 10px;
-              overflow-x: scroll;
-            }
 
-            ul.testimonials-list .testimonials-item1 {
-              flex-shrink: 0;
-              width: 200px;
-            }
-
-            ul.testimonials-list .slider-image {
-              border-radius: 10px;
-              display: block;
-              width: 100%;
-              cursor: pointer ;
-            }
-
-            .overlay {
-              display: none;
-              position: fixed;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              background-color: rgba(0, 0, 0, 0.8);
-              justify-content: center;
-              align-items: center;
-              transition: opacity 0.3s ease;
-              opacity: 0;
-            }
-
-            .overlay.active {
-              display: flex;
-              opacity: 1;
-            }
-
-            .overlay .overlay-image {
-              max-width: 90%;
-              max-height: 90%;
-              cursor: pointer;
-            }
-
-            .overlay .close-btn {
-              position: absolute;
-              top: 20px;
-              right: 30px;
-              font-size: 40px;
-              color: white;
-              cursor: pointer;
-            }
-          </style>
-          <ul class="testimonials-list has-scrollbar">
-            <li class="testimonials-item">
-              <img src="./assets/images/Certificate_page-0001.jpg" class="slider-image" style="border-radius: 10px; display: block;"
-                width="100%" alt="">
-            </li>
-            <li class="testimonials-item">
-              <img src="./assets/images/blog-2.jpg" class="slider-image" style="border-radius: 10px; display: block;"
-                width="100%" alt="">
-            </li>
-            <li class="testimonials-item">
-              <img src="./assets/images/blog-4.jpg" class="slider-image" style="border-radius: 10px; display: block;"
-                width="100%" alt="">
-            </li>
-          </ul>
-          <div id="fullscreen-overlay" class="overlay">
-            <span class="close-btn">&times;</span>
-            <img class="overlay-image" id="fullscreen-image">
-          </div>
-          <script>
-            document.querySelectorAll('.slider-image').forEach(item => {
-              item.addEventListener('click', event => {
-                const src = event.target.src;
-                const overlay = document.getElementById('fullscreen-overlay');
-                const overlayImage = document.getElementById('fullscreen-image');
-                overlayImage.src = src;
-                overlay.classList.add('active');
-              });
-            });
-
-            document.querySelector('.close-btn').addEventListener('click', () => {
-              document.getElementById('fullscreen-overlay').classList.remove('active');
-            });
-
-            document.getElementById('fullscreen-overlay').addEventListener('click', event => {
-              if (event.target !== document.getElementById('fullscreen-image')) {
-                document.getElementById('fullscreen-overlay').classList.remove('active');
-              }
-            });
-
-          </script>
-        </section>
         <!--
           - clients
         -->
@@ -686,7 +589,7 @@
               <ion-icon name="book-outline"></ion-icon>
             </div>
 
-            <h3 class="h3">Certificate</h3>
+            <h3 class="h3">Certificates</h3>
           </div>
 
           <ol class="timeline-list">
@@ -704,16 +607,102 @@
                 </p>
               </li> -->
 
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Red & White Multimedia Education</h4>
-
-              <span>2021 — 2023</span>
-
-              <!-- <p class="timeline-text">
-                  Ratione voluptatem sequi nesciunt, facere quisquams facere
-                  menda ossimus, omnis voluptas assumenda est omnis..
-                </p> -->
-            </li>
+              <style>
+                ul.testimonials-list1 {
+                  list-style-type: none;
+                  padding: 0;
+                  display: flex;
+                  gap: 10px;
+                  overflow-x: scroll;
+                }
+    
+                ul.testimonials-list .testimonials-item1 {
+                  flex-shrink: 0;
+                  width: 200px;
+                }
+    
+                ul.testimonials-list .slider-image {
+                  border-radius: 10px;
+                  display: block;
+                  width: 100%;
+                  cursor: pointer ;
+                }
+    
+                .overlay {
+                  display: none;
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background-color: rgba(0, 0, 0, 0.8);
+                  justify-content: center;
+                  align-items: center;
+                  transition: opacity 0.3s ease;
+                  opacity: 0;
+                }
+    
+                .overlay.active {
+                  display: flex;
+                  opacity: 1;
+                }
+    
+                .overlay .overlay-image {
+                  max-width: 90%;
+                  max-height: 90%;
+                  cursor: pointer;
+                }
+    
+                .overlay .close-btn {
+                  position: absolute;
+                  top: 20px;
+                  right: 30px;
+                  font-size: 40px;
+                  color: white;
+                  cursor: pointer;
+                }
+              </style>
+              <ul class="testimonials-list has-scrollbar">
+                <li class="testimonials-item">
+                  <img src="./assets/images/Certificate_page-0001.jpg" class="slider-image" style="border-radius: 10px; display: block;"
+                    width="100%" alt="">
+                </li>
+                <li class="testimonials-item">
+                  <img src="./assets/images/Document 15_page-0002.jpg" class="slider-image" style="border-radius: 10px; display: block;"
+                    width="100%" alt="">
+                </li>
+                <li class="testimonials-item">
+                  <img src="./assets/images/Document 15_page-0003.jpg" class="slider-image" style="border-radius: 10px; display: block;"
+                    width="100%" alt="">
+                </li>
+                
+              </ul>
+              <div id="fullscreen-overlay" class="overlay">
+                <span class="close-btn">&times;</span>
+                <img class="overlay-image" id="fullscreen-image">
+              </div>
+              <script>
+                document.querySelectorAll('.slider-image').forEach(item => {
+                  item.addEventListener('click', event => {
+                    const src = event.target.src;
+                    const overlay = document.getElementById('fullscreen-overlay');
+                    const overlayImage = document.getElementById('fullscreen-image');
+                    overlayImage.src = src;
+                    overlay.classList.add('active');
+                  });
+                });
+    
+                document.querySelector('.close-btn').addEventListener('click', () => {
+                  document.getElementById('fullscreen-overlay').classList.remove('active');
+                });
+    
+                document.getElementById('fullscreen-overlay').addEventListener('click', event => {
+                  if (event.target !== document.getElementById('fullscreen-image')) {
+                    document.getElementById('fullscreen-overlay').classList.remove('active');
+                  }
+                });
+    
+              </script>
 
 
           </ol>
